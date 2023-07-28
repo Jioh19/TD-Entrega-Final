@@ -41,11 +41,11 @@ Login válido es:
 User: Juan
 Password: Oh
 
-Y esto genera un token que dura 30 minutos. 
+Y esto genera un token que dura 5 minutos. 
 
 La función principal de "filtrar()" verifica la existencia de un token mediante la función.
 
-Se utilizó "localStorage" para guardar el token, no se cuál es el protocolo adecuado para guardar Tokens.
+Se utilizó "localStorage" para guardar el token; no se cuál es el protocolo adecuado para guardar Tokens.
 
 ```js
 router.post("/filter", auth, filter);

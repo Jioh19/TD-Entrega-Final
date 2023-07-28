@@ -9,7 +9,6 @@ async function filtrar() {
 	const fechaInicio = document.getElementById("fechaInicio");
 	const fechaTermino = document.getElementById("fechaTermino");
 	const token = localStorage.getItem("myToken");
-	console.log(token);
 	if (token == null) {
 		login();
 	} else {
@@ -29,7 +28,6 @@ async function filtrar() {
 				}
 			);
 			const datos = response.data.rows;
-			//console.log(datos[0]);
 			listar.innerHTML = "";
 			datos.forEach((e) => {
 				listar.innerHTML += `
@@ -65,7 +63,6 @@ async function signIn() {
 			password: password.value,
 		});
 		localStorage.setItem("myToken", response.data.token);
-		console.log(response.data.token);
 	} catch (err) {
 		console.error(err);
 	} finally {

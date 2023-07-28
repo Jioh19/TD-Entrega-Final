@@ -12,7 +12,7 @@ const getToken = (req, res) => {
 			},
 			process.env.TOKEN_KEY,
 			{
-				expiresIn: "30m",
+				expiresIn: "5m",
 			}
 		);
         return res.status(201).json({
