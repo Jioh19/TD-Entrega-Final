@@ -1,0 +1,9 @@
+:root {
+	--font-color: rgb(0, 0, 0);
+	--hover-color: rgb(40, 157, 199);
+
+	--background-transparency: rgba(100, 100, 100, 0.3);
+	--background-color: rgb(0, 14, 67);
+
+	--hamburger-transparency: rgba(0, 14, 67, 0.8);
+}
