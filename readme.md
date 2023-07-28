@@ -1,5 +1,7 @@
 ## EXAMEN DE CERTIFICACIÓN
 
+### Importante! No probar con Firefox ya que Axios en este momento esta dando problemas cuando se utiliza en Firefox con CDN.
+
 ### En el archivo db.sql estan todas las queries utilizadas.
 
 Errores típicos lo imprime con explicación en la consola de backend gracias a la función "errorCode(err)" en "error.js".
@@ -30,20 +32,20 @@ M {message: 'Request failed with status code 400', name: 'AxiosError', code: 'E
 
 ### Autenticación
 
-Sobre la autenticación, se utilizo jsonwebtoken y se creo un token que dure más de 5 años. Este token se guardo como variable constante en scripts.js
+El sitio verifica antes de cualquier operación si existe un token de validación. Si no existe, automáticamente abre un modal
 
-Si se deja el token en null, automáticamente se comienza la secuencia de login y creación de nuevo token.
-
-En la consola de backend se puede verificar que efectivamente esta haciendo validación con el token.
+para hacer login y recibir un token.
 
 Login válido es:
 
 User: Juan
 Password: Oh
 
-Y esto genera un token que dura 30 minutos. Nuevamente solo falta un lugar para almacenar el token.
+Y esto genera un token que dura 30 minutos. 
 
-La función principal de "filtrar()" verifica la existencia de un token mediante la función
+La función principal de "filtrar()" verifica la existencia de un token mediante la función.
+
+Se utilizó "localStorage" para guardar el token, no se cuál es el protocolo adecuado para guardar Tokens.
 
 ```js
 router.post("/filter", auth, filter);

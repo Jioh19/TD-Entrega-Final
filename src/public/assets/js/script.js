@@ -1,5 +1,5 @@
-const token =
-	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSnVhbiIsInBhc3N3b3JkIjoiT2giLCJpYXQiOjE2OTA1NzIyNDgsImV4cCI6MTg3MDU3MjI0OH0.h_ln6urU-pvK5TyWE60253qi4NvDvAYH1VxHFmzNM2Q";
+// const token =
+// 	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSnVhbiIsInBhc3N3b3JkIjoiT2giLCJpYXQiOjE2OTA1NzIyNDgsImV4cCI6MTg3MDU3MjI0OH0.h_ln6urU-pvK5TyWE60253qi4NvDvAYH1VxHFmzNM2Q";
 
 async function filtrar() {
 	event.preventDefault();
@@ -8,7 +8,9 @@ async function filtrar() {
 	const groupname = document.getElementById("groupname");
 	const fechaInicio = document.getElementById("fechaInicio");
 	const fechaTermino = document.getElementById("fechaTermino");
-	if (token == "") {
+	const token = localStorage.getItem("myToken");
+	console.log(token);
+	if (token == null) {
 		login();
 	} else {
 		try {
@@ -62,6 +64,7 @@ async function signIn() {
 			name: user.value,
 			password: password.value,
 		});
+		localStorage.setItem("myToken", response.data.token);
 		console.log(response.data.token);
 	} catch (err) {
 		console.error(err);
