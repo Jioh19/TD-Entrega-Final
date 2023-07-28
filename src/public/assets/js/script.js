@@ -8,7 +8,7 @@ async function filtrar() {
 	const groupname = document.getElementById("groupname");
 	const fechaInicio = document.getElementById("fechaInicio");
 	const fechaTermino = document.getElementById("fechaTermino");
-	if (token == null) {
+	if (token == "") {
 		login();
 	} else {
 		try {
@@ -62,10 +62,7 @@ async function signIn() {
 			name: user.value,
 			password: password.value,
 		});
-		token = response.data.token;
-		const node = document.getElementById("token");
-		node.setAttribute("data-value", token);
-		console.log("valor de nodo", node.getAttribute("data-value"));
+		console.log(response.data.token);
 	} catch (err) {
 		console.error(err);
 	} finally {
