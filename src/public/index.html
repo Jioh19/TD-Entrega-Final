@@ -6,28 +6,28 @@
 		<title>Document</title>
 		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="./assets/css/styles.css" />
-        <link rel="stylesheet" href="./assets/css/variables.css" />
+		<link rel="stylesheet" href="./assets/css/variables.css" />
 	</head>
-	<body>
+	<body onload="filtrar();">
 		<form>
-            <div class="inputContainer justify-content-between">
-                <div class="mb-3 input-box">
-                    <input type="text" class="form-control" id="name" placeholder="name" />
-                </div>
-                <div class="mb-3 input-box">
-                    <input type="text" class="form-control" id="groupname" placeholder="group name"/>
-                </div>
-                <div class="mb-3 input-box">
-                    <input type="text" class="form-control" id="fechaInicio" placeholder="fecha rango inicio" />
-                </div>
-                <div class="mb-3 input-box">
-                    <input type="text" class="form-control" id="fechaTermino" placeholder="fecha rango término"/>
-                </div>
-            </div>
-			<button  class="btn btn-primary" onclick="filtrar()">filtrar</button>
+			<div class="inputContainer justify-content-between">
+				<div class="mb-3 input-box">
+					<input type="text" class="form-control" id="name" placeholder="name" />
+				</div>
+				<div class="mb-3 input-box">
+					<input type="text" class="form-control" id="groupname" placeholder="group name" />
+				</div>
+				<div class="mb-3 input-box">
+					<input type="text" class="form-control" id="fechaInicio" placeholder="fecha rango inicio" />
+				</div>
+				<div class="mb-3 input-box">
+					<input type="text" class="form-control" id="fechaTermino" placeholder="fecha rango término" />
+				</div>
+			</div>
+			<button class="btn btn-primary" onclick="filtrar()">filtrar</button>
 		</form>
 
-        <br />
+		<br />
 		<table class="table" style="padding: 25px">
 			<thead>
 				<tr class="tabla justify-content-between">
@@ -40,6 +40,32 @@
 			</thead>
 			<tbody class="table_list"></tbody>
 		</table>
+
+		<div class="modal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Login</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<form class="container-sm">
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Nombre</label>
+							<input type="text" class="form-control" id="user" aria-describedby="emailHelp" placeholder="Juan"/>
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputPassword1" class="form-label">Password</label>
+							<input type="text" class="form-control" id="password" placeholder="Oh"/>
+						</div>
+						<button type="submit" class="btn btn-primary" id="btn-send" onclick="signIn()">Submit</button>
+						<div id="token"></div>
+					</form>
+					<div class="modal-footer">
+						<br />
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"

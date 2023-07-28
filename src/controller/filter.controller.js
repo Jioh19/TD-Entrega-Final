@@ -1,4 +1,5 @@
 const pool = require("../config/db.config");
+const { errorCode } = require("../error");
 
 const filter = async (req, res) => {
 	const { name, groupname, fechaInicio, fechaTermino } = req.body;
@@ -10,14 +11,15 @@ const filter = async (req, res) => {
 			rows: response.rows,
 		});
 	} catch (err) {
-		res.status(417).json({
+		res.status(400).json({
 			status: 400,
-			message: err,
+			message: errorCode(err),
 		});
 	}
 };
 
 function compoundFilter(...args) {
+
 	let valid = 0;
     let compound = 0;
 	args.forEach((element) => {
@@ -31,7 +33,7 @@ function compoundFilter(...args) {
 	if (valid > 0) {
 		query += " WHERE";
 	}
-	if (args[0] !== "") {
+	if (args[0] !== "" && args[0] !== undefined) {
         if(compound === 0) {
             compound++;
         } else {
@@ -40,15 +42,15 @@ function compoundFilter(...args) {
 		query += ` LOWER(d.name) LIKE LOWER('%${args[0]}%')`;
 
 	}
-    if (args[1] !== "") {
-        if(compound === 0) {
-            compound++;
-        } else {
-            query += ' AND';
-        }
+    if (args[1] !== "" && args[1] !== undefined) {
+		if (compound === 0) {
+			compound++;
+		} else {
+			query += " AND";
+		}
 		query += ` LOWER(d.groupname) LIKE LOWER('%${args[1]}%')`;
 	}
-    if (args[2] !== "") {
+    if (args[2] !== "" && args[2] !== undefined) {
 		if (compound === 0) {
 			compound++;
 		} else {
@@ -56,7 +58,7 @@ function compoundFilter(...args) {
 		}
 		query += ` ed.startdate > '${args[2]}'`;
 	}
-    if (args[3] !== "") {
+    if (args[3] !== "" && args[3] !== undefined) {
 		if (compound === 0) {
 			compound++;
 		} else {

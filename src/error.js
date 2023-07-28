@@ -1,6 +1,8 @@
 function errorCode(err) {
+	let error;
 	if (err.code == "08003") console.log("\n ERROR! \n connection_does_not_exist\n");
 	else if (err.code == "08006") console.log("\n ERROR! \n connection_failure\n");
+	else if (err.code == "22007") console.log("\n ERROR! \n syntax_error_for_date_type\n");
 	else if (err.code == "23502") console.log("\n ERROR! \n non-nullable_columns\n");
 	else if (err.code == "23505") console.log("\n ERROR! \n duplicate_key_value\n");
 	else if (err.code == "28P01") console.log("\n ERROR! \n invalid_password\n");
@@ -16,9 +18,9 @@ function errorCode(err) {
 	else if (err.code == "42P01") console.log("\n ERROR! \n undefined_table\n");
 	else if (err.code == "42P02") console.log("\n ERROR! \n undefined_parameter\n");
 	else {
-		console.error(err.stack);
 		console.log(err.code);
 	}
+	console.error(err.stack);
 }
 
 module.exports = { errorCode };
