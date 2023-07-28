@@ -44,6 +44,7 @@ async function filtrar() {
 				fechaTermino.value = "";
 			});
 		} catch (err) {
+			localStorage.removeItem("myToken");
 			console.error(err);
 		}
 	}

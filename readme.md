@@ -41,16 +41,18 @@ Login válido es:
 User: Juan
 Password: Oh
 
+La verificación se hace en el controller "token.controller.js", pensando que esto se haría ingresando a una base de datos.
+
 Y esto genera un token que dura 5 minutos. 
 
 La función principal de "filtrar()" verifica la existencia de un token mediante la función.
-
-Se utilizó "localStorage" para guardar el token; no se cuál es el protocolo adecuado para guardar Tokens.
 
 ```js
 router.post("/filter", auth, filter);
 ```
 Donde la función "verifyToken()" verifica la validez de este en conjunto con la clave secreta en el .env
+
+Se utilizó "localStorage" para guardar el token; no se cuál es el protocolo adecuado para guardar Tokens.
 
 ### Función de filtrado
 
