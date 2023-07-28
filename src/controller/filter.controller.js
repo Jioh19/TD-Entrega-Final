@@ -19,9 +19,8 @@ const filter = async (req, res) => {
 };
 
 function compoundFilter(...args) {
-
 	let valid = 0;
-    let compound = 0;
+	let compound = 0;
 	args.forEach((element) => {
 		if (element !== "") {
 			valid++;
@@ -34,15 +33,14 @@ function compoundFilter(...args) {
 		query += " WHERE";
 	}
 	if (args[0] !== "" && args[0] !== undefined) {
-        if(compound === 0) {
-            compound++;
-        } else {
-            query += ' AND';
-        }
+		if (compound === 0) {
+			compound++;
+		} else {
+			query += " AND";
+		}
 		query += ` LOWER(d.name) LIKE LOWER('%${args[0]}%')`;
-
 	}
-    if (args[1] !== "" && args[1] !== undefined) {
+	if (args[1] !== "" && args[1] !== undefined) {
 		if (compound === 0) {
 			compound++;
 		} else {
@@ -50,7 +48,7 @@ function compoundFilter(...args) {
 		}
 		query += ` LOWER(d.groupname) LIKE LOWER('%${args[1]}%')`;
 	}
-    if (args[2] !== "" && args[2] !== undefined) {
+	if (args[2] !== "" && args[2] !== undefined) {
 		if (compound === 0) {
 			compound++;
 		} else {
@@ -58,7 +56,7 @@ function compoundFilter(...args) {
 		}
 		query += ` ed.startdate > '${args[2]}'`;
 	}
-    if (args[3] !== "" && args[3] !== undefined) {
+	if (args[3] !== "" && args[3] !== undefined) {
 		if (compound === 0) {
 			compound++;
 		} else {
@@ -67,10 +65,9 @@ function compoundFilter(...args) {
 		query += ` ed.startdate < '${args[3]}'`;
 	}
 
-    query += ";";
+	query += ";";
 	//console.log(query);
 	return query;
-
 }
 
 module.exports = {

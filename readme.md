@@ -26,9 +26,7 @@ FrontEnd:
 
 M {message: 'Request failed with status code 400', name: 'AxiosError', code: 'ERR_BAD_REQUEST', config: {…}, request: XMLHttpRequest, …}
 
-Las fechas de inicio y termino se ingresan en el formato:
 
-YYYY-MM-DD
 
 ### Autenticación
 
@@ -59,3 +57,7 @@ Se cumplió con el requisito de buscar de manera compuesta en la base de datos, 
 Además en "name" y "groupname" se puede buscar por parciales, o sea "Production" se puede buscar por "duct" y es independiente 
 
 de si son mayúsculas o no.
+
+Las fechas de inicio y termino se ingresan en el formato:
+
+YYYY-MM-DD
