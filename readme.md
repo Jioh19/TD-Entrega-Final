@@ -32,9 +32,11 @@ M {message: 'Request failed with status code 400', name: 'AxiosError', code: 'E
 
 ### Autenticación
 
-El sitio verifica antes de cualquier operación si existe un token de validación. Si no existe, automáticamente abre un modal
+El sitio verifica antes de cualquier operación si existe un token de validación. Si no existe, abre un modal
 
-para hacer login y recibir un token.
+para hacer login y recibir un token. Una vez que encuentre el token, abrirá automáticamente la lista completa de 
+
+la base de datos.
 
 Login válido es:
 
