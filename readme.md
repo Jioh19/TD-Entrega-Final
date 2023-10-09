@@ -1,7 +1,5 @@
 ## EXAMEN DE CERTIFICACIÓN
 
-### Importante! No probar con Firefox ya que Axios en este momento esta dando problemas cuando se utiliza en Firefox con CDN.
-
 ### En el archivo db.sql estan todas las queries utilizadas.
 
 Errores típicos lo imprime con explicación en la consola de backend gracias a la función "errorCode(err)" en "error.js".
