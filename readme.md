@@ -1,5 +1,4 @@
-## EXAMEN DE CERTIFICACIÓN
-
+## JS Express SQL JWT
 ### En el archivo db.sql estan todas las queries utilizadas.
 
 Errores típicos lo imprime con explicación en la consola de backend gracias a la función "errorCode(err)" en "error.js".
